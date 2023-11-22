@@ -32,6 +32,23 @@ export default function Home() {
           </div>
         </div>
         {/* HEADER */}
+
+        {/* DESCRIPTION PORTION */}
+        <div className="0 m-auto -mt-11 flex w-2/3 items-start justify-between">
+          <div className="w-[70%] rounded bg-white p-3 shadow">
+            {/* RESTAURANT NAVBAR */}
+            <nav className="flex border-b pb-2 text-reg">
+              <a href="" className="mr-7">
+                Overviev
+              </a>
+              <a href="" className="mr-7">
+                Menu
+              </a>
+            </nav>
+            {/* RESTAURANT NAVBAR */}
+          </div>
+        </div>
+        {/* DESCRIPTION PORTION */}
       </main>
     </main>
   );
