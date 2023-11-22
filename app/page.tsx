@@ -46,6 +46,36 @@ export default function Home() {
               </a>
             </nav>
             {/* RESTAURANT NAVBAR */}
+
+            {/* TITLE */}
+            <div className="mt-4 border-b pb-6">
+              <h1 className="text-6xl font-bold">Mr White's Leicester</h1>
+            </div>
+            {/* TITLE */}
+
+            {/* RATING */}
+            <div className="flex items-end pt-2">
+              <div className="ratings flex items-center">
+                <p>*****</p>
+                <p className="ml-3 text-reg">4.9</p>
+              </div>
+              <div>
+                <p className="ml-4 text-reg">600 reviews</p>
+              </div>
+            </div>
+            {/* RATING */}
+
+            {/* DESCRIPTION */}
+            <div className="mt-4">
+              <p className="text-lg font-light">
+                Marco Pierre White has returned to the capital's West End – for
+                the first time in 10 years. Located in Leicester Square, Mr.
+                White’s is now serving succulent steaks, authentic Italian
+                pizza, and Mr. White’s very own London Dry Gin in their lively
+                restaurant & bar.
+              </p>
+            </div>
+            {/* DESCRIPTION */}
           </div>
         </div>
         {/* DESCRIPTION PORTION */}
