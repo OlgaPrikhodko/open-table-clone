@@ -4,7 +4,7 @@ function RestaurantNavBar() {
   return (
     <nav className="flex border-b pb-2 text-reg">
       <Link href="/restaurant/mr-whites-leicester" className="mr-7">
-        Overviev1
+        Overviev
       </Link>
       <Link href="/restaurant/mr-whites-leicester/menu" className="mr-7">
         Menu
