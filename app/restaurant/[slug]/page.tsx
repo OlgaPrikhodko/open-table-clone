@@ -44,11 +44,11 @@ export default async function RestaurantDetails({
   return (
     <>
       <div className="w-[70%] rounded bg-white p-3 shadow">
-        <RestaurantNavBar />
-        <Title />
+        <RestaurantNavBar slug={restaurant.slug} />
+        <Title name={restaurant.name} />
         <Rating />
-        <Description />
-        <Images />
+        <Description description={restaurant.description} />
+        <Images images={restaurant.images} />
         <Reviews />
       </div>
 
