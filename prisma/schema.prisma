@@ -21,6 +21,7 @@ model Restaurant {
   slug         String   @unique
   price        PRICE
   items        Item[]
+  reviews      Review[]
 
   location_id  Int
   location     Location @relation(fields: [location_id], references: [id])
@@ -28,17 +29,18 @@ model Restaurant {
   cuisine_id   Int
   cuisine      Cuisine @relation(fields: [cuisine_id], references: [id])
 
+
   created_at   DateTime @default(now())
   updated_at   DateTime @default(now())
 }
 
 model Item {
-  id           Int        @id @default(autoincrement())
-  name         String
-  price          String
+  id              Int        @id @default(autoincrement())
+  name            String
+  price           String
   description     String
-  restaurant_id    Int
-  restaurant Restaurant @relation(fields: [restaurant_id], references: [id])
+  restaurant_id   Int
+  restaurant      Restaurant @relation(fields: [restaurant_id], references: [id])
 
   created_at   DateTime @default(now())
   updated_at   DateTime @default(now())
@@ -51,7 +53,6 @@ model Location {
 
   created_at   DateTime @default(now())
   updated_at   DateTime @default(now())
-
 }
 
 model Cuisine {
@@ -61,8 +62,38 @@ model Cuisine {
 
   created_at   DateTime @default(now())
   updated_at   DateTime @default(now())
-
 }
+
+model User {
+  id             Int        @id @default(autoincrement())
+  first_name     String
+  last_name      String
+  city           String
+  email          String
+  password       String
+  phone          String
+  reviews        Review[]
+  created_at   DateTime @default(now())
+  updated_at   DateTime @default(now())
+}
+
+model Review {
+  id             Int        @id @default(autoincrement())
+  first_name     String
+  last_name      String
+  text           String
+  rating         Float
+
+  restaurant_id  Int
+  restaurant     Restaurant @relation(fields: [restaurant_id], references: [id])
+
+  user_id     Int
+  user        User @relation(fields: [user_id], references: [id])
+
+  created_at   DateTime @default(now())
+  updated_at   DateTime @default(now())
+}
+
 
 enum PRICE {
   CHEAP
