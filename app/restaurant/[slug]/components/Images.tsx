@@ -6,7 +6,7 @@ function Images({ images }: { images: string[] }) {
       </h1>
       <div className="flex flex-wrap">
         {images.map((image) => (
-          <img src={image} alt="" className="mr-1 mb-1 h-44 w-56" />
+          <img src={image} alt="" className="mr-1 mb-1 h-44 w-56" key={image} />
         ))}
       </div>
     </div>

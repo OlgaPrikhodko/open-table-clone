@@ -72,6 +72,7 @@ function SearchSideBar({
                 query: { ...searchParams, price },
               }}
               className={`w-full border p-2 text-center text-reg font-light ${className}`}
+              key={label}
             >
               {label}
             </Link>
