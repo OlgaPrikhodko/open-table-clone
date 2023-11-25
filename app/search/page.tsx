@@ -38,6 +38,7 @@ const fetchRestaurantsByCity = async (searchParams: SearchParamsType) => {
     cuisine: true,
     slug: true,
     location: true,
+    reviews: true,
   };
 
   const restaurants = await prisma.restaurant.findMany({
