@@ -6,10 +6,14 @@ function Rating({ reviews }: { reviews: Review[] }) {
     <div className="flex items-end pt-2">
       <div className="ratings flex items-center">
         <p>*****</p>
-        <p className="ml-3 text-reg">{calculateReviewRatingAverage(reviews)}</p>
+        <p className="ml-3 text-reg">
+          {calculateReviewRatingAverage(reviews).toFixed(1)}
+        </p>
       </div>
       <div>
-        <p className="ml-4 text-reg">{reviews.length} reviews</p>
+        <p className="ml-4 text-reg">
+          {reviews.length} review{reviews.length === 1 ? "" : "s"}
+        </p>
       </div>
     </div>
   );
