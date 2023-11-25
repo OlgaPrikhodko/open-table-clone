@@ -1,6 +1,7 @@
 import { Cuisine, Location, PRICE, Review } from "@prisma/client";
 import Link from "next/link";
 import Price from "../../components/Price";
+import RatingStars from "../../components/RatingStars";
 import { calculateReviewRatingAverage } from "../../utils/calculateReviewRatingAverage";
 
 interface RestaurantCardType {
@@ -29,8 +30,9 @@ function RestaurantCard({ restaurant }: { restaurant: RestaurantCardType }) {
       <img src={restaurant.main_image} alt="" className="h-36 w-44 rounded" />
       <div className="pl-5">
         <h2 className="text-3xl">{restaurant.name}</h2>
+
         <div className="flex items-start">
-          <div className="mb-2 flex">******</div>
+          <RatingStars reviews={restaurant.reviews} />
           <p className="ml-2 text-sm">{renderRatingText()}</p>
         </div>
 
