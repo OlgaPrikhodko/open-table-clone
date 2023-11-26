@@ -30,8 +30,13 @@ function RatingStars({ reviews }: { reviews: Review[] }) {
       stars.push(emptyStar);
     }
 
-    return stars.map((star) => (
-      <Image src={star} className="mr-2 h-4 w-4" alt="Review star" />
+    return stars.map((star, index) => (
+      <Image
+        src={star}
+        className="mr-2 h-4 w-4"
+        alt="Review star"
+        key={index}
+      />
     ));
   };
 
