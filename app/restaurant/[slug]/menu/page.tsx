@@ -10,7 +10,7 @@ const fetchItems = async (slug: string) => {
     select: { items: true },
   });
 
-  if (!restaurant) throw new Error();
+  if (!restaurant) throw new Error("Cannot find restaurant :(");
 
   return restaurant.items;
 };
