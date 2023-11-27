@@ -2,7 +2,7 @@
 
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
 import AuthModalInputs from "./AuthModalInputs";
 
 const style = {
@@ -24,6 +24,22 @@ export default function AuthModal({ isSignIn }: { isSignIn: boolean }) {
   const renderContent = (signInContent: string, signUpContent: string) => {
     return isSignIn ? signInContent : signUpContent;
   };
+
+  const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
+    setInputs({
+      ...inputs,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const [inputs, setInputs] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    city: "",
+    password: "",
+  });
 
   return (
     <div>
@@ -58,7 +74,11 @@ export default function AuthModal({ isSignIn }: { isSignIn: boolean }) {
                 )}
               </h2>
 
-              <AuthModalInputs />
+              <AuthModalInputs
+                inputs={inputs}
+                handleChangeInput={handleChangeInput}
+                isSignIn={isSignIn}
+              />
               <button className="mb-5 mt-3 w-full rounded bg-red-600 p-3 text-sm uppercase text-white disabled:bg-gray-100">
                 {renderContent("Sign In", "Create your Account")}
               </button>
