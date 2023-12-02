@@ -1,6 +1,6 @@
 "use client";
 
-import { CircularProgress } from "@mui/material";
+import { Alert, CircularProgress } from "@mui/material";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { useState, ChangeEvent, useEffect, useContext } from "react";
@@ -99,6 +99,12 @@ export default function AuthModal({ isSignIn }: { isSignIn: boolean }) {
             </div>
           ) : (
             <div className="h-[500px] p-2">
+              {error ? (
+                <Alert severity="error" className="mb-4">
+                  {error}
+                </Alert>
+              ) : null}
+
               <div className="mb-2 border-b pb-2 text-center font-bold uppercase">
                 <p className="text-sm">
                   {renderContent("Sign In", "Create Account")}
