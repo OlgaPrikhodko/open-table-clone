@@ -6,13 +6,17 @@ const useAuth = () => {
   const { data, loading, error, setAuthState } = useContext(
     AuthenticationContext,
   );
-  const signin = async ({
-    email,
-    password,
-  }: {
-    email: string;
-    password: string;
-  }) => {
+
+  const signin = async (
+    {
+      email,
+      password,
+    }: {
+      email: string;
+      password: string;
+    },
+    handleClose: () => void,
+  ) => {
     try {
       setAuthState({ data: null, loading: true, error: null });
       const response = await axios.post(
@@ -23,6 +27,7 @@ const useAuth = () => {
         },
       );
       setAuthState({ data: response.data, loading: false, error: null });
+      handleClose();
     } catch (error: any) {
       setAuthState({
         data: null,
