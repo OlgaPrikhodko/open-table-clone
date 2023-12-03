@@ -2,11 +2,13 @@
 
 import Link from "next/link";
 import { useContext } from "react";
+import useAuth from "../../hooks/useAuth";
 import { AuthenticationContext } from "../context/AuthContext";
 import AuthModal from "./AuthModal";
 
 export default function NavBar() {
   const { data, loading } = useContext(AuthenticationContext);
+  const { signout } = useAuth();
 
   return (
     <nav className="flex justify-between bg-white p-2">
@@ -18,8 +20,11 @@ export default function NavBar() {
         {loading ? null : (
           <div className="flex">
             {data ? (
-              <button className="mr-3 rounded border bg-blue-400 p-2 px-4 text-white">
-                Logout
+              <button
+                className="mr-3 rounded border bg-blue-400 p-2 px-4 text-white"
+                onClick={() => signout()}
+              >
+                Sign out
               </button>
             ) : (
               <>
