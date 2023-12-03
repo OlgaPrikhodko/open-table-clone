@@ -1,7 +1,13 @@
+"use client";
+
 import Link from "next/link";
+import { useContext } from "react";
+import { AuthenticationContext } from "../context/AuthContext";
 import AuthModal from "./AuthModal";
 
 export default function NavBar() {
+  const { data, loading } = useContext(AuthenticationContext);
+
   return (
     <nav className="flex justify-between bg-white p-2">
       <Link href="/" className="text-2xl font-bold text-gray-700">
@@ -9,10 +15,20 @@ export default function NavBar() {
       </Link>
 
       <div>
-        <div className="flex">
-          <AuthModal isSignIn={true} />
-          <AuthModal isSignIn={false} />
-        </div>
+        {loading ? null : (
+          <div className="flex">
+            {data ? (
+              <button className="mr-3 rounded border bg-blue-400 p-2 px-4 text-white">
+                Logout
+              </button>
+            ) : (
+              <>
+                <AuthModal isSignIn={true} />
+                <AuthModal isSignIn={false} />
+              </>
+            )}
+          </div>
+        )}
       </div>
     </nav>
   );
