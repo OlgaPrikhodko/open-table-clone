@@ -46,7 +46,26 @@ export default async function handler(
         return { ...acc, [table.table_id]: true };
       }, {});
   });
-  return res.json({ searchTimes, bookings, bookingTablesObj });
+
+  const restaurant = await prisma.restaurant.findUnique({
+    where: { slug },
+    select: {
+      tables: true,
+    },
+  });
+
+  if (!restaurant) {
+    return res.status(400).json({ errorMessage: "Invalid time data provided" });
+  }
+
+  const tables = restaurant.tables;
+
+  return res.json({
+    searchTimes,
+    bookings,
+    bookingTablesObj,
+    tables,
+  });
 }
 
 // http://localhost:3000/api/restaurant/vivaan-fine-indian-cuisine-ottawa/availability?day=2023-05-01&time=20:00:00.000Z&partySize=4
