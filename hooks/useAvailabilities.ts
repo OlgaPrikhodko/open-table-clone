@@ -8,10 +8,12 @@ type FetchAvailabilitiesParamsType = {
   time: string;
 };
 
+type AvailabilityType = { time: string; available: boolean };
+
 export default function useAvailabilities() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<AvailabilityType[] | null>(null);
 
   const fetchAvailabilities = async ({
     slug,

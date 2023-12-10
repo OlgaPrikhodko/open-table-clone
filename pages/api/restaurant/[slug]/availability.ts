@@ -99,10 +99,7 @@ export default async function handler(
       return timeIsAfterOpeningHours && timeIsBeforeClosingHours;
     });
 
-  return res.json({
-    searchTimesWithTables,
-    availabilities,
-  });
+  return res.json(availabilities);
 }
 
 // http://localhost:3000/api/restaurant/vivaan-fine-indian-cuisine-ottawa/availability?day=2023-05-01&time=20:00:00.000Z&partySize=4
