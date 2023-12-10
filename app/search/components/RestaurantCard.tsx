@@ -2,7 +2,7 @@ import { Cuisine, Location, PRICE, Review } from "@prisma/client";
 import Link from "next/link";
 import Price from "../../components/Price";
 import RatingStars from "../../components/RatingStars";
-import { calculateReviewRatingAverage } from "../../utils/calculateReviewRatingAverage";
+import { calculateReviewRatingAverage } from "../../../utils/calculateReviewRatingAverage";
 
 interface RestaurantCardType {
   id: number;
