@@ -6,6 +6,10 @@ import { useState } from "react";
 import useAvailabilities from "../../../../hooks/useAvailabilities";
 import { CircularProgress } from "@mui/material";
 import Link from "next/link";
+import {
+  convertToDisplayTime,
+  TimeType,
+} from "../../../../utils/convertToDisplayTime";
 
 type ReservationCardProps = {
   openTime: string;
@@ -123,7 +127,9 @@ function ReservationCard({ openTime, closeTime, slug }: ReservationCardProps) {
                   href={`/reserve/${slug}?date=${day}T${time}&partySize=${partySize}`}
                   className="mb-3 mr-3 w-24 cursor-pointer rounded bg-red-600 p-2 text-center text-white"
                 >
-                  <p className="text-sm font-bold">{time.time}</p>
+                  <p className="text-sm font-bold">
+                    {convertToDisplayTime(time.time as TimeType)}
+                  </p>
                 </Link>
               ) : (
                 <p className="bg-grey-300 mb-3 mr-3 w-24 rounded p-2"></p>
