@@ -60,11 +60,28 @@ export default async function handler(
 
   const tables = restaurant.tables;
 
+  const searchTimesWithTables = searchTimes.map((searchTime) => ({
+    date: new Date(`${day}T${searchTime}`),
+    time: searchTime,
+    tables,
+  }));
+
+  searchTimesWithTables.forEach((t) => {
+    t.tables = t.tables.filter((table) => {
+      if (bookingTablesObj[t.date.toISOString()]) {
+        if (bookingTablesObj[t.date.toISOString()][table.id]) return false;
+      }
+
+      return true;
+    });
+  });
+
   return res.json({
     searchTimes,
     bookings,
     bookingTablesObj,
     tables,
+    searchTimesWithTables,
   });
 }
 
