@@ -1,9 +1,24 @@
+import {
+  convertToDisplayTime,
+  TimeType,
+} from "../../../../utils/convertToDisplayTime";
+
 type HeaderProps = {
   image: string;
   name: string;
+  date: string;
+  partySize: string;
 };
 
-function Header({ image, name }: HeaderProps) {
+function Header({ image, name, date, partySize }: HeaderProps) {
+  const [day, time] = date.split("T");
+
+  const displayedDay = new Date(day).toLocaleDateString("en-us", {
+    weekday: "short",
+    month: "short",
+    day: "numeric",
+  });
+
   return (
     <div>
       <h3 className="font-bold">You're almost done!</h3>
@@ -14,9 +29,11 @@ function Header({ image, name }: HeaderProps) {
           <h1 className="text-3xl font-bold">{name}</h1>
 
           <div className="mt-3 flex">
-            <p className="mr-6">Tue, Nov, 22, 2023</p>
-            <p className="mr-6">6:15 PM</p>
-            <p className="mr-6">2 People (Standart seating)</p>
+            <p className="mr-6">{displayedDay}</p>
+            <p className="mr-6">{convertToDisplayTime(time as TimeType)}</p>
+            <p className="mr-6">
+              {partySize} {partySize === "1" ? "person" : "people"}
+            </p>
           </div>
         </div>
       </div>
