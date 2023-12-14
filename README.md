@@ -1,3 +1,38 @@
+## Restaurant Reservation Project
+
+Simple copy of the opentable.com.
+This is restaurant reservation application where people can view restaurants and reserve tables
+
+#### Business Requirements / Main Functionalities:
+
+- Show list of restaurants
+- Search for restaurants in the city
+- Show retaurants details
+- Search for a particular date and time, number of people to make reservation
+- Availability system
+- Booking system
+- Authentication system (sign in, sign up)
+
+#### Pages:
+
+- homepage
+- /search
+- /restaurant/[slug]
+- /restaurant/[slug]/menu
+- /reserve/[slug]
+
+#### Technologies Stack
+
+- NextJS 13 (main concepts: file system, static and dynamic routes, handle loading, error, not found, and success states, server and client components);
+- supabase (Postgres with Prisma (ORM) for defining models);
+- authentication - from scratch by utilizing middleware, hashers and json web tokens. context API for storing user data;
+
+#### Reastaurant availability assumptions and rules:
+
+- Restaurant availability is based on the number of tables that they have, not the number of seats;
+- Tables can only have 2 or 4 seats (to simplify the app);
+- Possible to combine tables togather for larger bookings;
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
