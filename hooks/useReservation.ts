@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 
-type FetchAvailabilitiesParamsType = {
+type FetchReservationParamsType = {
   slug: string;
   partySize: string;
   day: string;
@@ -29,7 +29,7 @@ export default function useReservation() {
     bookerEmail,
     bookerOccasion,
     bookerRequest,
-  }: FetchAvailabilitiesParamsType) => {
+  }: FetchReservationParamsType) => {
     setLoading(true);
 
     try {
