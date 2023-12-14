@@ -124,7 +124,7 @@ function ReservationCard({ openTime, closeTime, slug }: ReservationCardProps) {
             {data.map((time) => {
               return time.available ? (
                 <Link
-                  href={`/reserve/${slug}?date=${day}T${time}&partySize=${partySize}`}
+                  href={`/reserve/${slug}?date=${day}T${time.time}&partySize=${partySize}`}
                   className="mb-3 mr-3 w-24 cursor-pointer rounded bg-red-600 p-2 text-center text-white"
                 >
                   <p className="text-sm font-bold">
