@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 
 type FetchReservationParamsType = {
   slug: string;
@@ -12,6 +12,7 @@ type FetchReservationParamsType = {
   bookerEmail: string;
   bookerOccasion: string;
   bookerRequest: string;
+  setDidBook: Dispatch<SetStateAction<boolean>>;
 };
 
 export default function useReservation() {
@@ -29,6 +30,7 @@ export default function useReservation() {
     bookerEmail,
     bookerOccasion,
     bookerRequest,
+    setDidBook,
   }: FetchReservationParamsType) => {
     setLoading(true);
 
@@ -47,6 +49,7 @@ export default function useReservation() {
       );
 
       setLoading(false);
+      setDidBook(true);
       return response.data;
     } catch (error: any) {
       setLoading(false);

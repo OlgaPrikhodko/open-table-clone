@@ -132,7 +132,7 @@ function ReservationCard({ openTime, closeTime, slug }: ReservationCardProps) {
                   </p>
                 </Link>
               ) : (
-                <p className="bg-grey-300 mb-3 mr-3 w-24 rounded p-2"></p>
+                <p className="mb-3 mr-3 w-24 rounded bg-gray-300 p-2"></p>
               );
             })}
           </div>
